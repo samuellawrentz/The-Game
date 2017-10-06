@@ -7,7 +7,7 @@
 <body>
 <a href="index.html">Go Back</a>
 <div id=score>
-Score: 20
+Score: 50
 </div>
 
 <div id="highScore">
@@ -51,10 +51,10 @@ scoreDiv.text("Score: "+score);
    else{
    $(this).css('background-color', 'red');
 
-      score=score-15;
+      score=score-100;
       scoreDiv.text("Score: "+score);
    missedDiv.show();
-   missedDiv.hide(500);
+   missedDiv.hide(600);
 
    }
 charcode='';
