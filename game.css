@@ -1,0 +1,28 @@
+#Welcome{
+  align:center;
+  font-size:50px;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 25%;
+  width:100%;
+  text-align:center;
+  }
+  
+  #Fired{
+  align:center;
+  font-size:20px;
+  font-family: 'Roboto', sans-serif;
+
+    padding-top: 20px;
+  color:red;
+  width:100%;
+  text-align:center;
+  display:none;
+  }
+  
+  #score{
+float:right;
+font-size:20px;
+  font-family: 'Roboto', sans-serif;
+padding-right:10px;
+padding-top:10px;
+  }
