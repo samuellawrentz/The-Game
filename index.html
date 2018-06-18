@@ -1,5 +1,7 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+   <script src="game.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -7,22 +9,31 @@
 <h1>Typing Mania</h1>    
 </div>
 
-<br>
+<div class="content">
+    <br>
 <br>
 
 <h5>Type the Letter as it is displayed and make sure that your score stays above Zero</h5>
 <br>
-Happy Evening
 <br>
 <br>
-<h4 id ="click"><a href="game.html" class="button">Click to play<a></h4>
+<h4 id ="click"><a href="javascript:" onclick=play() class="button">Click to play<a></h4></div>
+                  <div id="Welcome">
 </div>
+</div>
+
 </body>
 
 
 
 <style>
 
+                      #Welcome{
+                  font-size:30vh;
+         line-height:300px;
+         height:30vh;
+                  
+         }
 div{
 
   font-family: 'Lato', sans-serif;
@@ -60,3 +71,55 @@ div{
     
   }
 </style>
+         
+         <script>
+function play(){
+var score=50;
+    $('.content').hide();
+
+var alphabet= ("abcdefghijklmnopqrstuvwxyz").toUpperCase().split("");
+var origText=$('#Welcome');
+var scoreDiv=$('#score');
+var missedDiv=$('#Fired');
+
+
+$('#Welcome').text("A");
+
+
+$('body').on('keydown', function( evt ) {
+      $(this).css('background-color', 'white');
+if(score>0){
+var charCode = evt.which || evt.keyCode;
+   var charStr = String.fromCharCode(charCode);
+   
+   if(origText.text()===charStr){
+   alph=Math.floor(Math.random() * (26 - 0 + 1)) + 0;
+   score=score+10;
+origText.text(alphabet[alph]);
+scoreDiv.text("Score: "+score);
+   }
+   else{
+   $(this).css('background-color', 'red');
+
+      score=score-100;
+      scoreDiv.text("Score: "+score);
+   missedDiv.show();
+   missedDiv.hide(600);
+
+   }
+charcode='';
+charStr='';
+
+}
+else{
+origText.text("Oops! I think the Game is Over :(")
+$('body').off('keydown');
+}
+});
+}
+
+
+
+
+ 
+</script>
