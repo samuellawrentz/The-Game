@@ -17,9 +17,16 @@
 <br>
 <br>
 <br>
-<h4 id ="click"><a href="javascript:" onclick=play() class="button">Click to play<a></h4></div>
-                  <div id="Welcome">
+<h4 id ="click"><a href="javascript:" onclick=play() class="button">Click to play<a></h4>
+
+
 </div>
+                  <div id="Welcome" class="normal">
+				  
+</div>
+<div class="end">Odds are not in your favor?
+<br>
+<h4 id ="click"><a href="javascript:" onclick=play() class="button">Play Again<a></h4></div>
 </div>
 
 </body>
@@ -51,7 +58,19 @@ div{
         color: #ffc800;
         text-transform:uppercase;
         font-size: 2.5em;
+		transition: all 1s;
     }
+	
+	.end{
+	padding: 60px 0;
+	display:none;
+	font-size:26px;
+	}
+	
+	.title.started{
+	font-size: 2em;
+	height:30vh;
+	}
     
     h5{
         font-family: 'Lato', sans-serif;
@@ -59,7 +78,7 @@ div{
     }
     
     a.button {
-    background-color: #008074;; /* Green */
+    background-color: #008074; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -76,11 +95,14 @@ div{
 function play(){
 var score=50;
     $('.content').hide();
+	$('#Welcome').show();
+	$('.end').hide();
 
 var alphabet= ("abcdefghijklmnopqrstuvwxyz").toUpperCase().split("");
 var origText=$('#Welcome');
 var scoreDiv=$('#score');
 var missedDiv=$('#Fired');
+$('.title').addClass('started');
 
 
 $('#Welcome').text("A");
@@ -112,7 +134,8 @@ charStr='';
 
 }
 else{
-origText.text("Oops! I think the Game is Over :(")
+$('.end').show();
+$('#Welcome').hide();
 $('body').off('keydown');
 }
 });
